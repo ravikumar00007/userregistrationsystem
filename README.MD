@@ -1,4 +1,31 @@
-# Jakarta Persistence Annotations
+## User Registration System CRUD
+
+### `@RestController`
+
+- **Purpose:**
+  - Combines `@Controller` and `@ResponseBody`.
+  - Used for creating RESTful web services.
+
+- **Usage:**
+  - Applied to classes to indicate that all methods return data suitable for RESTful services.
+
+### `@Service`
+
+- **Purpose:**
+  - Marks a class as a service class in the business layer.
+  - Typically used to hold business logic.
+
+- **Usage:**
+  - Applied to service classes.
+
+### `@Repository`
+
+- **Purpose:**
+  - Indicates that a class is a Data Access Object (DAO).
+  - Converts checked exceptions into Spring's DataAccessException.
+
+- **Usage:**
+  - Applied to classes at the persistence layer.
 
 ## @Entity
 - Annotates a Java class to be an entity, representing a table in a relational database.
@@ -40,4 +67,3 @@
 - Represents the entire HTTP response in Spring applications.
 - Used to customize the response status, headers, and body.
 - Provides flexibility in constructing and returning HTTP responses from controller methods.
-
