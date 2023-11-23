@@ -1,63 +1,43 @@
-## User Registration System CRUD
+# Jakarta Persistence Annotations
 
-### `@Configuration`
+## @Entity
+- Annotates a Java class to be an entity, representing a table in a relational database.
+- Used in conjunction with the Jakarta Persistence API to map entities to database tables.
 
-- **Purpose:**
-  - Indicates that a class declares one or more `@Bean` methods and may be processed by the Spring container to generate bean definitions and service requests for those beans.
+## @Table
+- Specifies the details of the table that will be used to persist the entity.
+- Allows customization of the table name, schema, and other attributes.
 
-- **Usage:**
-  - Applied to classes that define Spring configuration.
+## @Column(unique=true, nullable=false)
+- Annotates a field to specify the column mapping for a persistent property.
+- `unique=true` ensures that the values in the column are unique.
+- `nullable=false` specifies that the column cannot have a null value.
 
-### `@ComponentScan`
+## @Id
+- Marks a field as the primary key of the entity.
+- Indicates that the annotated field will be used as the primary key in the corresponding database table.
 
-- **Purpose:**
-  - Configures the scanning of the specified package for Spring components (e.g., `@Component`, `@Service`, `@Repository`, `@Controller`).
+## @GeneratedValue
+- Specifies the strategy for generation of primary key values.
+- Used in conjunction with the @Id annotation to define how primary key values should be generated.
 
-- **Usage:**
-  - Applied to configuration classes to specify the base packages to scan for components.
+## @NotNull
+- An annotation from the Bean Validation API.
+- Marks a field as not nullable, ensuring that the corresponding database column cannot contain null values.
 
-### `@Component`
+# Spring Annotations
 
-- **Purpose:**
-  - Indicates that a class is a Spring component, and the Spring container should manage it as a bean.
+## @RestControllerAdvice
+- A specialization of the @ControllerAdvice annotation.
+- Used in Spring MVC to define global controllers advice.
+- Centralizes exception handling for all controllers in the application.
 
-- **Usage:**
-  - Applied to classes that should be auto-detected and registered as Spring beans.
+## @ExceptionHandler
+- Indicates a method that handles exceptions thrown by specific controller methods.
+- Used in conjunction with @RestControllerAdvice to provide a centralized exception handling mechanism.
 
-### `@RestController`
+## ResponseEntity
+- Represents the entire HTTP response in Spring applications.
+- Used to customize the response status, headers, and body.
+- Provides flexibility in constructing and returning HTTP responses from controller methods.
 
-- **Purpose:**
-  - Combines `@Controller` and `@ResponseBody`.
-  - Used for creating RESTful web services.
-
-- **Usage:**
-  - Applied to classes to indicate that all methods return data suitable for RESTful services.
-
-### `@Controller` + `@ResponseBody`
-
-- **Purpose:**
-  - `@Controller`: Marks a class as a Spring MVC controller.
-  - `@ResponseBody`: Indicates a method return value should be bound to the web response body.
-
-- **Usage:**
-  - Applied to classes for handling HTTP requests and returning data.
-
-### `@Service`
-
-- **Purpose:**
-  - Marks a class as a service class in the business layer.
-  - Typically used to hold business logic.
-
-- **Usage:**
-  - Applied to service classes.
-
-### `@Repository`
-
-- **Purpose:**
-  - Indicates that a class is a Data Access Object (DAO).
-  - Converts checked exceptions into Spring's DataAccessException.
-
-- **Usage:**
-  - Applied to classes at the persistence layer.
-
-These annotations are part of the Spring framework and are used to configure and manage various components within a Spring-based application. Depending on the type of class and its role in the application, you would apply the relevant annotation(s) to enable Spring to handle it appropriately.
