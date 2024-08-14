@@ -2,9 +2,21 @@ spring:
   application:
     name: useregistrationsystem
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/registrations?createDatabaseIfNotExist=true
-    username: ${MYSQL_USERNAME:root}
-    password: DanviShanmuki@2
+    #url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/registrations?createDatabaseIfNotExist=true
+    #username: ${MYSQL_USERNAME:root}
+    #password: DanviShanmuki@2
+    #====================================
+    #url: jdbc:mysql://localhost:3306/jrtp
+    #username: root
+    #password: nareshit
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+   driver-class-name: org.h2.Driver
+   url: jdbc:h2:mem:testdb
+   username: sa
+   password: nareshit
+
+
+
   jpa:
     show-sql: true
     hibernate:

@@ -18,13 +18,13 @@ public class UserRegistrationController {
     private UserRegistrationService userRegistrationService;
 
     @PostMapping
-    public ResponseEntity<String> createUser(@Valid @RequestBody UserDTO userDTO){
+    public ResponseEntity<String> createUser(@Valid @RequestBody UserDTO userDTO) {
         this.userRegistrationService.createUser(userDTO);
         return new ResponseEntity<String>("User registered successfully.", HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<String> updateUser(@Valid @RequestBody UserDTO userDTO){
+    public ResponseEntity<String> updateUser(@Valid @RequestBody UserDTO userDTO) {
         this.userRegistrationService.updateUser(userDTO);
         return new ResponseEntity<String>("User updated successfully.", HttpStatus.OK);
     }
@@ -35,8 +35,13 @@ public class UserRegistrationController {
     }
 
     @DeleteMapping("/{user_id}")
-    public ResponseEntity<?> deleteUserById(@PathVariable Integer user_id){
+    public ResponseEntity<?> deleteUserById(@PathVariable Integer user_id) {
         this.userRegistrationService.deleteUserByID(user_id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/welcome")
+    public ResponseEntity<?> showWelcome() {
+        return new ResponseEntity<String>("Welcome to UserRegistrationController", HttpStatus.OK);
     }
 }
